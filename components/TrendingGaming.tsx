@@ -22,22 +22,11 @@ const TrendingGaming: React.FC = () => {
   const [sales, setSales] = useState<TrendGam[]>([]);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [transitioning, setTransitioning] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  
   const autoPlayTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, []);
 
   useEffect(() => {
     const originalCollections = [
@@ -174,6 +163,7 @@ const TrendingGaming: React.FC = () => {
   };
 
   const getCardWidth = () => {
+    if (!carouselRef.current || sales.length === 0) return;
     const width = window.innerWidth;
 
     if (width < 768) {
@@ -209,14 +199,14 @@ const TrendingGaming: React.FC = () => {
             <button
               onClick={handlePrevious}
               disabled={transitioning}
-              className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50"
+              className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
             >
               <ChevronLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={handleNext}
               disabled={transitioning}
-              className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors disabled:opacity-50"
+              className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
             >
               <ChevronRight className="w-6 h-6 text-white" />
             </button>
