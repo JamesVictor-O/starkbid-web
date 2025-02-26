@@ -2,7 +2,7 @@
 import { StaticImageData } from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {ArrowLeft, ArrowRight } from "lucide-react";
 import Eth from "@/public/Eth.png";
 import Image1 from "@/public/Frame5.png";
 import Image2 from "@/public/Frame6.png";
@@ -201,14 +201,14 @@ const TrendingGaming: React.FC = () => {
               disabled={transitioning}
               className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
             >
-              <ChevronLeft className="w-6 h-6 text-white" />
+              <ArrowLeft className="w-6 h-6 text-white" />
             </button>
             <button
               onClick={handleNext}
               disabled={transitioning}
               className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700"
             >
-              <ChevronRight className="w-6 h-6 text-white" />
+              <ArrowRight className="w-6 h-6 text-white" />
             </button>
           </div>
         </div>
