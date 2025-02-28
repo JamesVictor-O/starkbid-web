@@ -20,11 +20,17 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
 
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
 .remove-scrollbar {
   overflow-x: auto;
   scrollbar-width: none;
-
 }
 
 .remove-scrollbar::-webkit-scrollbar {
